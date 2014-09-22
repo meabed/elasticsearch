@@ -3,6 +3,8 @@
 # Debian:wheezy
 # docker build -t meabed/elasticsearch:latest .
 #
+# sudo sysctl -w vm.max_map_count=262144
+# echo "vm.max_map_count=262144" >> /etc/sysctl.conf
 
 FROM debian:wheezy
 MAINTAINER Mohamed Meabed "mo.meabed@gmail.com"
@@ -48,6 +50,8 @@ ENV HOME /root
 
 RUN /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
 RUN /usr/share/elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf
+
+RUN sed -i '/sysctl -q -w vm.max_map_count/ s/^#*/true\n#/' /etc/init.d/elasticsearch
 
 RUN service ssh start && service elasticsearch start
 
