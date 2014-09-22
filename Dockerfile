@@ -46,6 +46,9 @@ ENV ES_LOG_DIR /var/log/elasticsearch
 ENV ES_DATE_DIR /var/lib/elasticsearch
 ENV HOME /root
 
+RUN /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
+RUN /usr/share/elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf
+
 RUN service ssh start && service elasticsearch start
 
 ADD bootstrap.sh /etc/bootstrap.sh
