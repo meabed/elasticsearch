@@ -1,0 +1,4 @@
+path.data: /data/es/data
+path.logs: /data/es/log
+path.plugins: /data/es/plugins
+path.work: /data/es/work
