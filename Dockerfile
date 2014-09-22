@@ -55,5 +55,10 @@ RUN chmod 700 /etc/bootstrap.sh
 CMD ["/etc/bootstrap.sh", "-d"]
 
 
+# Expose ports.
+#   - 9200: HTTP
+#   - 9300: transport
+EXPOSE 9200
+EXPOSE 9300
 
 
