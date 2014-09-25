@@ -33,6 +33,9 @@ RUN sed -i '/sysctl -q -w vm.max_map_count/ s/^#*/true\n#/' /etc/init.d/elastics
 RUN sed -i '/^ES_USER=el/ s/^#*/true\nES_USER=root\n#/' /etc/init.d/elasticsearch
 RUN sed -i '/^ES_GROUP=el/ s/^#*/true\nES_GROUP=root\n#/' /etc/init.d/elasticsearch
 
+RUN sed  -i "/^#cluster\.name.*/ s/.*/&\ncluster\.name: iData/"  /etc/elasticsearch/elasticsearch.yml
+
+
 ADD config/elasticsearch.yml /opt/downloads/elasticsearch.yml
 
 RUN cat /opt/downloads/elasticsearch.yml >> /etc/elasticsearch/elasticsearch.yml
