@@ -28,6 +28,8 @@ ENV HOME /root
 
 RUN /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
 RUN /usr/share/elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf
+RUN /usr/share/elasticsearch/bin/plugin -install lukas-vlcek/bigdesk
+RUN /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
 
 RUN sed -i '/sysctl -q -w vm.max_map_count/ s/^#*/true\n#/' /etc/init.d/elasticsearch
 RUN sed -i '/^ES_USER=el/ s/^#*/true\nES_USER=root\n#/' /etc/init.d/elasticsearch
