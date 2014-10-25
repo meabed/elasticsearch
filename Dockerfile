@@ -1,5 +1,5 @@
 #
-# Nutch
+# Elasticsearch
 # meabed/debian-jdk
 # docker build -t meabed/elasticsearch:latest .
 #
